@@ -1,13 +1,13 @@
 # Key Components
-Private AKS – Kubernetes cluster with private API access
-Workload Identity – Secure Azure authentication
-Azure Key Vault – Private secret management
-ACR – Private container image registry
-Private Endpoints – Secure private connectivity
-Security
-No public access to AKS, ACR, or Key Vault
-Workloads authenticate using Workload Identity
-Azure resources communicate through the private network
+    Private AKS – Kubernetes cluster with private API access
+    Workload Identity – Secure Azure authentication
+    Azure Key Vault – Private secret management
+    ACR – Private container image registry
+    Private Endpoints – Secure private connectivity
+    Security
+    No public access to AKS, ACR, or Key Vault
+    Workloads authenticate using Workload Identity
+    Azure resources communicate through the private network
 
 # Points to Remember
 
