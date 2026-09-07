@@ -1,30 +1,13 @@
-
-                         Azure Virtual Network
-┌─────────────────────────────────────────────────────────────────┐
-│                                                                 │
-│   Private AKS Subnet                                            │
-│   ┌───────────────────────────────┐                             │
-│   │       Private AKS Cluster     │                             │
-│   │                               │                             │
-│   │  Workload A ──┐              │                             │
-│   │  Workload B ──┼── Workload   │                             │
-│   │               │  Identity    │                             │
-│   └───────────────┼───────────────┘                             │
-│                   │                                             │
-│                   │ Private Endpoints                           │
-│                   ▼                                             │
-│        ┌──────────────────────┐                                 │
-│        │    Azure Key Vault    │                                 │
-│        │                       │                                 │
-│        │ Private Access Only   │                                 │
-│        └──────────────────────┘                                 │
-│                                                                 │
-│        ┌──────────────────────┐                                 │
-│        │        ACR           │                                 │
-│        │ Private Access Only  │                                 │
-│        └──────────────────────┘                                 │
-│                                                                 │
-└─────────────────────────────────────────────────────────────────┘
+# Key Components
+Private AKS – Kubernetes cluster with private API access
+Workload Identity – Secure Azure authentication
+Azure Key Vault – Private secret management
+ACR – Private container image registry
+Private Endpoints – Secure private connectivity
+Security
+No public access to AKS, ACR, or Key Vault
+Workloads authenticate using Workload Identity
+Azure resources communicate through the private network
 
 # Points to Remember
 
@@ -36,19 +19,19 @@ No public Key Vault access
 # Infra Provisioning - Terraform Structure files to create
 
 terraform/
-    ├── providers.tf
-    ├── variables.tf
-    ├── locals.tf
-    ├── resource-group.tf
-    ├── network.tf
-    ├── private-dns.tf
-    ├── aks.tf
-    ├── acr.tf
-    ├── keyvault.tf
-    ├── identities.tf
-    ├── role-assignments.tf
-    ├── outputs.tf
-    └── terraform.tfvars
+├── providers.tf
+├── variables.tf
+├── locals.tf
+├── resource-group.tf
+├── network.tf
+├── private-dns.tf
+├── aks.tf
+├── acr.tf
+├── keyvault.tf
+├── identities.tf
+├── role-assignments.tf
+├── outputs.tf
+└── terraform.tfvars
 
 # Steps to perform to provision the env.
 cd /User/terraform  - Go to the terraform directory
